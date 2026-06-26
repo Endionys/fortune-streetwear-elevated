@@ -83,8 +83,8 @@ export const categories: Category[] = [
 ];
 
 export const navLinks = [
-  { label: "Coleção", href: "#colecao" },
-  { label: "Categorias", href: "#categorias" },
-  { label: "Manifesto", href: "#manifesto" },
-  { label: "Contato", href: "#contato" },
+  { label: "Coleção", href: "/#colecao" },
+  { label: "Catálogo", href: "/catalogo" },
+  { label: "Manifesto", href: "/#manifesto" },
+  { label: "Contato", href: "/#contato" },
 ];
