@@ -1,8 +1,13 @@
 import { useState } from "react";
 
-export function Newsletter() {
+export function NewsletterSection() {
   const [email, setEmail] = useState("");
-  const [sent, setSent] = useState(false);
+  const [hasSubscribed, setHasSubscribed] = useState(false);
+
+  function handleSubscribe(event: React.FormEvent) {
+    event.preventDefault();
+    if (email) setHasSubscribed(true);
+  }
 
   return (
     <section className="py-24 md:py-32 border-t border-[color:var(--border)]">
@@ -20,19 +25,13 @@ export function Newsletter() {
           </p>
         </div>
 
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            if (email) setSent(true);
-          }}
-          className="w-full"
-        >
+        <form onSubmit={handleSubscribe} className="w-full">
           <div className="flex flex-col sm:flex-row gap-3 border-b border-[color:var(--border)] pb-4">
             <input
               type="email"
               required
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(event) => setEmail(event.target.value)}
               placeholder="seu@email.com"
               className="flex-1 bg-transparent text-text placeholder:text-text-muted outline-none py-3 text-lg"
             />
@@ -40,7 +39,7 @@ export function Newsletter() {
               type="submit"
               className="bg-primary text-background px-8 py-3 text-sm font-bold uppercase tracking-[0.2em] hover:bg-text transition-colors"
             >
-              {sent ? "Inscrito ✓" : "Inscrever-se"}
+              {hasSubscribed ? "Inscrito ✓" : "Inscrever-se"}
             </button>
           </div>
           <p className="mt-4 text-xs text-text-muted">

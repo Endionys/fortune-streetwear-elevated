@@ -1,11 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Header } from "@/components/site/Header";
-import { Hero } from "@/components/site/Hero";
-import { ProductGrid } from "@/components/site/ProductGrid";
-import { Manifesto } from "@/components/site/Manifesto";
-import { Categories } from "@/components/site/Categories";
-import { Newsletter } from "@/components/site/Newsletter";
-import { Footer } from "@/components/site/Footer";
+import { NavigationBar } from "@/components/layout/NavigationBar";
+import { HeroBanner } from "@/components/home/HeroBanner";
+import { FeaturedCollection } from "@/components/home/FeaturedCollection";
+import { BrandManifesto } from "@/components/home/BrandManifesto";
+import { CategoryGrid } from "@/components/home/CategoryGrid";
+import { NewsletterSection } from "@/components/home/NewsletterSection";
+import { FooterSection } from "@/components/layout/FooterSection";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -24,19 +24,19 @@ export const Route = createFileRoute("/")({
       },
     ],
   }),
-  component: Index,
+  component: HomePage,
 });
 
-function Index() {
+function HomePage() {
   return (
     <main className="min-h-screen bg-background text-text">
-      <Header />
-      <Hero />
-      <ProductGrid />
-      <Manifesto />
-      <Categories />
-      <Newsletter />
-      <Footer />
+      <NavigationBar />
+      <HeroBanner />
+      <FeaturedCollection />
+      <BrandManifesto />
+      <CategoryGrid />
+      <NewsletterSection />
+      <FooterSection />
     </main>
   );
 }

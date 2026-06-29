@@ -1,7 +1,10 @@
 import { createFileRoute, useNavigate, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
+import { BrandWordmark } from "@/components/ui/BrandWordmark";
+
+type AuthMode = "signin" | "signup";
 
 export const Route = createFileRoute("/auth")({
   head: () => ({
@@ -15,10 +18,10 @@ export const Route = createFileRoute("/auth")({
 
 function AuthPage() {
   const navigate = useNavigate();
-  const [mode, setMode] = useState<"signin" | "signup">("signin");
+  const [mode, setMode] = useState<AuthMode>("signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     supabase.auth.getUser().then(({ data }) => {
@@ -26,9 +29,9 @@ function AuthPage() {
     });
   }, [navigate]);
 
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setLoading(true);
+  async function handleSubmit(event: React.FormEvent) {
+    event.preventDefault();
+    setIsSubmitting(true);
     try {
       if (mode === "signup") {
         const { error } = await supabase.auth.signUp({
@@ -37,17 +40,23 @@ function AuthPage() {
           options: { emailRedirectTo: `${window.location.origin}/admin` },
         });
         if (error) throw error;
-        toast.success("Conta criada. Verifique seu email se a confirmação estiver ativa.");
+        toast.success(
+          "Conta criada. Verifique seu email se a confirmação estiver ativa.",
+        );
       } else {
-        const { error } = await supabase.auth.signInWithPassword({ email, password });
+        const { error } = await supabase.auth.signInWithPassword({
+          email,
+          password,
+        });
         if (error) throw error;
         navigate({ to: "/admin" });
       }
-    } catch (err) {
-      const message = err instanceof Error ? err.message : "Erro ao autenticar";
-      toast.error(message);
+    } catch (error) {
+      toast.error(
+        error instanceof Error ? error.message : "Erro ao autenticar",
+      );
     } finally {
-      setLoading(false);
+      setIsSubmitting(false);
     }
   }
 
@@ -55,9 +64,7 @@ function AuthPage() {
     <main className="min-h-screen bg-background text-text grid place-items-center px-5">
       <div className="w-full max-w-md">
         <Link to="/" className="block text-center mb-10">
-          <span className="text-display text-3xl tracking-[0.05em]">
-            FORT<span className="text-primary">U</span>NE
-          </span>
+          <BrandWordmark className="text-3xl tracking-[0.05em]" />
         </Link>
 
         <div className="border border-[color:var(--border)] bg-surface p-8">
@@ -73,7 +80,7 @@ function AuthPage() {
                 type="email"
                 required
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(event) => setEmail(event.target.value)}
                 className="w-full bg-background border border-[color:var(--border)] px-4 py-3 text-text focus:border-primary outline-none transition-colors"
               />
             </div>
@@ -84,16 +91,20 @@ function AuthPage() {
                 required
                 minLength={6}
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(event) => setPassword(event.target.value)}
                 className="w-full bg-background border border-[color:var(--border)] px-4 py-3 text-text focus:border-primary outline-none transition-colors"
               />
             </div>
             <button
               type="submit"
-              disabled={loading}
+              disabled={isSubmitting}
               className="w-full bg-primary text-background font-bold uppercase tracking-[0.18em] text-xs py-4 hover:bg-primary/90 transition disabled:opacity-50"
             >
-              {loading ? "..." : mode === "signin" ? "Entrar" : "Criar conta"}
+              {isSubmitting
+                ? "..."
+                : mode === "signin"
+                  ? "Entrar"
+                  : "Criar conta"}
             </button>
           </form>
 
@@ -108,7 +119,8 @@ function AuthPage() {
         </div>
 
         <p className="text-text-muted text-xs text-center mt-6 leading-relaxed">
-          Após criar a primeira conta, atribua o papel <span className="text-primary">admin</span> a ela no banco para
+          Após criar a primeira conta, atribua o papel{" "}
+          <span className="text-primary">admin</span> a ela no banco para
           liberar o painel.
         </p>
       </div>

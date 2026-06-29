@@ -1,6 +1,11 @@
-export function Manifesto() {
+import { brand } from "@/data/brand";
+
+export function BrandManifesto() {
   return (
-    <section id="manifesto" className="relative py-32 md:py-48 bg-background overflow-hidden">
+    <section
+      id="manifesto"
+      className="relative py-32 md:py-48 bg-background overflow-hidden"
+    >
       <div
         aria-hidden
         className="absolute inset-0 opacity-[0.05] text-display text-[clamp(10rem,40vw,32rem)] leading-none text-text whitespace-nowrap flex items-center justify-center pointer-events-none select-none"
@@ -23,7 +28,7 @@ export function Manifesto() {
 
         <div className="mt-16 inline-flex items-center gap-3 text-eyebrow">
           <span className="h-px w-12 bg-primary" />
-          Estabelecida em 2026
+          {brand.establishedLabel}
           <span className="h-px w-12 bg-primary" />
         </div>
       </div>
