@@ -10,7 +10,7 @@ export function BrandTextureBackdrop() {
   return (
     <div
       aria-hidden
-      className="pointer-events-none fixed inset-0 z-[40] overflow-hidden select-none mix-blend-overlay"
+      className="pointer-events-none fixed inset-0 z-[40] overflow-hidden select-none"
       style={{ width: "100vw", height: "100vh" }}
     >
       {/* Diagonal band — spans the whole viewport */}
