@@ -59,6 +59,31 @@
   @media (min-width: 768px) {
     padding-inline: 2.5rem;
   }
+  position: relative;
+  z-index: 2;
+}
+
+@utility glass-panel {
+  background-color: color-mix(in oklab, var(--color-surface) 55%, transparent);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 10px;
+  backdrop-filter: blur(14px) saturate(140%);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.04) inset,
+    0 20px 40px -30px rgba(0, 0, 0, 0.6);
+}
+
+@utility glass-panel-hover {
+  transition:
+    border-color 0.4s ease,
+    box-shadow 0.4s ease,
+    transform 0.4s ease;
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.06) inset,
+      0 30px 60px -30px rgba(0, 0, 0, 0.75);
+  }
 }
 
 @utility text-display {

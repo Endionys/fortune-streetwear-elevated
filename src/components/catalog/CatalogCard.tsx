@@ -17,7 +17,7 @@ export function CatalogCard({ artwork, index }: CatalogCardProps) {
         transitionDelay: inView ? `${delayMs}ms` : "0ms",
       }}
       className={[
-        "group relative border border-[color:var(--border)] bg-surface overflow-hidden",
+        "group relative glass-panel overflow-hidden",
         "transform-gpu will-change-transform",
         "transition-[opacity,transform,box-shadow,border-color] duration-700 ease-[cubic-bezier(0.2,0.7,0.2,1)]",
         "motion-reduce:transition-none motion-reduce:transform-none",
@@ -25,7 +25,7 @@ export function CatalogCard({ artwork, index }: CatalogCardProps) {
           ? "opacity-100 translate-y-0"
           : "opacity-0 translate-y-6 motion-reduce:opacity-100",
         "hover:-translate-y-1 hover:border-[color:var(--primary)]/40",
-        "hover:shadow-[0_20px_40px_-20px_rgba(0,0,0,0.7)]",
+        "hover:shadow-[0_30px_60px_-30px_rgba(0,0,0,0.8)]",
       ].join(" ")}
     >
       <div className="relative aspect-[4/5] overflow-hidden bg-background">
