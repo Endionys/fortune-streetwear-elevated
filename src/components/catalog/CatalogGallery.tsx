@@ -23,7 +23,7 @@ export function CatalogGallery() {
 function EmptyCatalogState() {
   return (
     <section className="container-x py-24 animate-catalog-in">
-      <div className="border border-dashed border-[color:var(--border)] p-16 text-center">
+      <div className="glass-panel p-16 text-center border-dashed">
         <span className="text-eyebrow">/ Em breve</span>
         <p className="text-display text-3xl mt-4">Acervo em construção</p>
         <p className="text-text-muted text-sm mt-3">
@@ -41,7 +41,7 @@ export function CatalogGallerySkeleton() {
         {Array.from({ length: 6 }).map((_, index) => (
           <div
             key={index}
-            className="aspect-[4/5] border border-[color:var(--border)] shimmer-surface"
+            className="aspect-[4/5] glass-panel shimmer-surface"
           />
         ))}
       </div>
