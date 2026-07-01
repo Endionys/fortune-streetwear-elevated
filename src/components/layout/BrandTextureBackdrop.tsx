@@ -11,8 +11,9 @@ export function BrandTextureBackdrop() {
   return (
     <div
       aria-hidden
-      className="pointer-events-none fixed inset-0 -z-10 overflow-hidden select-none"
+      className="pointer-events-none fixed inset-0 z-[1] overflow-hidden select-none mix-blend-screen"
     >
+
       {/* Diagonal band */}
       <div className="absolute inset-0 hidden sm:flex items-center justify-center">
         <div
