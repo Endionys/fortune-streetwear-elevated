@@ -10,7 +10,7 @@ export function CatalogGallery() {
   }
 
   return (
-    <section className="container-x py-16 md:py-24">
+    <section className="container-x py-16 md:py-24 animate-catalog-in">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {artworks.map((artwork, index) => (
           <CatalogCard key={artwork.id} artwork={artwork} index={index} />
@@ -22,7 +22,7 @@ export function CatalogGallery() {
 
 function EmptyCatalogState() {
   return (
-    <section className="container-x py-24">
+    <section className="container-x py-24 animate-catalog-in">
       <div className="border border-dashed border-[color:var(--border)] p-16 text-center">
         <span className="text-eyebrow">/ Em breve</span>
         <p className="text-display text-3xl mt-4">Acervo em construção</p>
@@ -36,12 +36,12 @@ function EmptyCatalogState() {
 
 export function CatalogGallerySkeleton() {
   return (
-    <section className="container-x py-16 md:py-24">
+    <section className="container-x py-16 md:py-24 animate-catalog-in">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {Array.from({ length: 6 }).map((_, index) => (
           <div
             key={index}
-            className="aspect-[4/5] bg-surface border border-[color:var(--border)] animate-pulse"
+            className="aspect-[4/5] border border-[color:var(--border)] shimmer-surface"
           />
         ))}
       </div>

@@ -104,3 +104,58 @@
 @utility fade-up {
   animation: fade-up 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
+
+@keyframes catalog-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility animate-catalog-in {
+  animation: catalog-in 0.35s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes shimmer-sweep {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@utility shimmer-surface {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-surface);
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      100deg,
+      transparent 20%,
+      rgba(255, 255, 255, 0.06) 45%,
+      rgba(255, 210, 51, 0.08) 50%,
+      rgba(255, 255, 255, 0.06) 55%,
+      transparent 80%
+    );
+    animation: shimmer-sweep 1.6s linear infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-catalog-in,
+  .shimmer-surface::after,
+  .marquee-track,
+  .fade-up {
+    animation: none !important;
+  }
+}
+
