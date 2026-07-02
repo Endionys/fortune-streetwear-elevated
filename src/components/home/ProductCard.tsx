@@ -11,7 +11,7 @@ export function ProductCard({ product, index, total }: ProductCardProps) {
   const badge = `0${index + 1} / 0${total}`;
 
   return (
-    <article className="group relative bg-surface border border-[color:var(--border)] overflow-hidden">
+    <article className="group relative glass-panel glass-panel-hover overflow-hidden">
       <div className="relative aspect-[4/5] overflow-hidden bg-background">
         <img
           src={product.image}
