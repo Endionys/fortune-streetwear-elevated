@@ -180,27 +180,29 @@
   to { transform: translateX(-50%); }
 }
 
-@keyframes brand-marquee-y {
-  from { transform: translateY(0); }
-  to { transform: translateY(-50%); }
+ @keyframes brand-vertical-scroll {
+ 0% { transform: translateY(90vh) rotate(90deg); }
+ 100% { transform: translateY(-90vh) rotate(90deg); 
+ }
 }
+
 
 @utility brand-marquee-x {
-  animation: brand-marquee-x 60s linear infinite;
+  animation: brand-marquee-x 22s linear infinite;
   will-change: transform;
 }
 
-@utility brand-marquee-y {
-  animation: brand-marquee-y 45s linear infinite;
-  will-change: transform;
-}
+ @utility brand-marquee-y-single {
+   animation: brand-vertical-scroll 14s linear infinite;
+    will-change: transform;
+  }
 
 @media (prefers-reduced-motion: reduce) {
   .animate-catalog-in,
   .shimmer-surface::after,
   .marquee-track,
   .brand-marquee-x,
-  .brand-marquee-y,
+  .brand-marquee-y-single,
   .fade-up {
     animation: none !important;
   }
