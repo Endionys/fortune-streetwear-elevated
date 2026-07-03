@@ -35,11 +35,13 @@ export function BrandTextureBackdrop() {
       </div>
 
       {/* Vertical band pinned to the right edge, full viewport height */}
-      <div style={{ transform: "translateX(100px)" }}>
-+          <span className="brand-marquee-y-single inline-block whitespace-nowrap text-display uppercase tracking-[0.35em] text-[11vw] md:text-[8vw] leading-none text-text/[0.16]">
-+            {verticalPhrase}
-+          </span>
-+        </div>
+      <div className="absolute right-0 top-0 h-screen w-[35vw] md:w-[28vw] overflow-hidden flex items-center justify-center">
+        <div style={{ transform: "translateX(48px)" }}>
+          <span className="brand-marquee-y-single inline-block whitespace-nowrap text-display uppercase tracking-[0.35em] text-[11vw] md:text-[8vw] leading-none text-text/[0.16]">
+            {verticalPhrase}
+          </span>
+        </div>
+      </div>
     </div>
   );
 }
