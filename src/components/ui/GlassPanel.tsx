@@ -1,10 +1,10 @@
-import { forwardRef, type ElementType, type HTMLAttributes } from "react";
+import { forwardRef, createElement, type ElementType, type HTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
 
-type GlassPanelProps<T extends ElementType = "div"> = {
-  as?: T;
+type GlassPanelProps = HTMLAttributes<HTMLElement> & {
+  as?: ElementType;
   interactive?: boolean;
-} & HTMLAttributes<HTMLElement>;
+};
 
 /**
  * GlassPanel — reusable glass surface for cards and sections.
@@ -12,20 +12,15 @@ type GlassPanelProps<T extends ElementType = "div"> = {
  * Set `interactive` for hover elevation on clickable cards.
  */
 export const GlassPanel = forwardRef<HTMLElement, GlassPanelProps>(
-  ({ as, interactive = false, className, children, ...rest }, ref) => {
-    const Component = (as ?? "div") as ElementType;
-    return (
-      <Component
-        ref={ref}
-        className={cn(
-          "glass-panel",
-          interactive && "glass-panel-hover",
-          className,
-        )}
-        {...rest}
-      >
-        {children}
-      </Component>
+  ({ as = "div", interactive = false, className, children, ...rest }, ref) => {
+    return createElement(
+      as,
+      {
+        ref,
+        className: cn("glass-panel", interactive && "glass-panel-hover", className),
+        ...rest,
+      },
+      children,
     );
   },
 );
