@@ -42,11 +42,12 @@ export function CatalogGallerySkeleton() {
     <section className="container-x py-16 md:py-24 animate-catalog-in">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {Array.from({ length: 6 }).map((_, index) => (
-          <div
+          <GlassPanel
             key={index}
-            className="aspect-[4/5] glass-panel shimmer-surface"
+            className="aspect-[4/5] shimmer-surface"
           />
         ))}
+
       </div>
     </section>
   );
