@@ -1,5 +1,7 @@
 import { useInView } from "@/hooks/use-in-view";
+import { GlassPanel } from "@/components/ui/GlassPanel";
 import type { CatalogArtwork } from "@/types/catalog";
+
 
 type CatalogCardProps = {
   artwork: CatalogArtwork;
