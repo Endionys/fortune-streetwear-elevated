@@ -35,7 +35,9 @@ export const Route = createFileRoute("/catalogo")({
 function CatalogPage() {
   return (
     <main className="min-h-screen bg-background text-text">
+      <FirstPurchaseDiscountAlert />
       <NavigationBar />
+
 
       <section className="pt-32 md:pt-40 pb-16 border-b border-[color:var(--border)]">
         <div className="container-x">
