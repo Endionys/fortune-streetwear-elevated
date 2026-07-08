@@ -1,6 +1,8 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { catalogArtworksQuery } from "@/services/catalog";
+import { GlassPanel } from "@/components/ui/GlassPanel";
 import { CatalogCard } from "./CatalogCard";
+
 
 export function CatalogGallery() {
   const { data: artworks } = useSuspenseQuery(catalogArtworksQuery);
