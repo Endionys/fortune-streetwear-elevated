@@ -32,7 +32,9 @@ export const Route = createFileRoute("/")({
 function HomePage() {
   return (
     <main className="min-h-screen bg-background text-text">
+      <FirstPurchaseDiscountAlert />
       <NavigationBar />
+
       <HeroBanner />
       <FeaturedCollection />
       <BrandManifesto />
