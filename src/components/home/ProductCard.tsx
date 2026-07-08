@@ -1,5 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
+import { GlassPanel } from "@/components/ui/GlassPanel";
 import type { FeaturedProduct } from "@/types/site";
+
 
 type ProductCardProps = {
   product: FeaturedProduct;
