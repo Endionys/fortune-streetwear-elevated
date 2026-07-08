@@ -13,13 +13,14 @@ export function CatalogCard({ artwork, index }: CatalogCardProps) {
   const delayMs = Math.min(index, 8) * 70;
 
   return (
-    <article
-      ref={ref}
+    <GlassPanel
+      as="article"
+      ref={ref as never}
       style={{
         transitionDelay: inView ? `${delayMs}ms` : "0ms",
       }}
       className={[
-        "group relative glass-panel overflow-hidden",
+        "group relative overflow-hidden",
         "transform-gpu will-change-transform",
         "transition-[opacity,transform,box-shadow,border-color] duration-700 ease-[cubic-bezier(0.2,0.7,0.2,1)]",
         "motion-reduce:transition-none motion-reduce:transform-none",
@@ -30,6 +31,7 @@ export function CatalogCard({ artwork, index }: CatalogCardProps) {
         "hover:shadow-[0_30px_60px_-30px_rgba(0,0,0,0.8)]",
       ].join(" ")}
     >
+
       <div className="relative aspect-[4/5] overflow-hidden bg-background">
         <img
           src={artwork.image_url}
