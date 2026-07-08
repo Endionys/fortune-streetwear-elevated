@@ -39,6 +39,6 @@ export function ProductCard({ product, index, total }: ProductCardProps) {
           <ArrowUpRight size={16} />
         </button>
       </div>
-    </article>
+    </GlassPanel>
   );
 }
