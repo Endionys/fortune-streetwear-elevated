@@ -63,6 +63,6 @@ export function CatalogCard({ artwork, index }: CatalogCardProps) {
           />
         </h3>
       </div>
-    </article>
+    </GlassPanel>
   );
 }
