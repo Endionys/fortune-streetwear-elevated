@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Suspense } from "react";
 import { NavigationBar } from "@/components/layout/NavigationBar";
+import { FirstPurchaseDiscountAlert } from "@/components/marketing/FirstPurchaseDiscountAlert";
 import { FooterSection } from "@/components/layout/FooterSection";
+
 import {
   CatalogGallery,
   CatalogGallerySkeleton,
