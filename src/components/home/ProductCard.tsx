@@ -1,5 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
+import { GlassPanel } from "@/components/ui/GlassPanel";
 import type { FeaturedProduct } from "@/types/site";
+
 
 type ProductCardProps = {
   product: FeaturedProduct;
@@ -11,7 +13,7 @@ export function ProductCard({ product, index, total }: ProductCardProps) {
   const badge = `0${index + 1} / 0${total}`;
 
   return (
-    <article className="group relative glass-panel glass-panel-hover overflow-hidden">
+    <GlassPanel as="article" interactive className="group relative overflow-hidden">
       <div className="relative aspect-[4/5] overflow-hidden bg-background">
         <img
           src={product.image}
@@ -37,6 +39,6 @@ export function ProductCard({ product, index, total }: ProductCardProps) {
           <ArrowUpRight size={16} />
         </button>
       </div>
-    </article>
+    </GlassPanel>
   );
 }

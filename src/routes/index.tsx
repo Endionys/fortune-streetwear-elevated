@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { NavigationBar } from "@/components/layout/NavigationBar";
+import { FirstPurchaseDiscountAlert } from "@/components/marketing/FirstPurchaseDiscountAlert";
+
 import { HeroBanner } from "@/components/home/HeroBanner";
 import { FeaturedCollection } from "@/components/home/FeaturedCollection";
 import { BrandManifesto } from "@/components/home/BrandManifesto";
@@ -30,7 +32,9 @@ export const Route = createFileRoute("/")({
 function HomePage() {
   return (
     <main className="min-h-screen bg-background text-text">
+      <FirstPurchaseDiscountAlert />
       <NavigationBar />
+
       <HeroBanner />
       <FeaturedCollection />
       <BrandManifesto />

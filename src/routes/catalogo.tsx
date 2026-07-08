@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Suspense } from "react";
 import { NavigationBar } from "@/components/layout/NavigationBar";
+import { FirstPurchaseDiscountAlert } from "@/components/marketing/FirstPurchaseDiscountAlert";
 import { FooterSection } from "@/components/layout/FooterSection";
+
 import {
   CatalogGallery,
   CatalogGallerySkeleton,
@@ -33,7 +35,9 @@ export const Route = createFileRoute("/catalogo")({
 function CatalogPage() {
   return (
     <main className="min-h-screen bg-background text-text">
+      <FirstPurchaseDiscountAlert />
       <NavigationBar />
+
 
       <section className="pt-32 md:pt-40 pb-16 border-b border-[color:var(--border)]">
         <div className="container-x">
