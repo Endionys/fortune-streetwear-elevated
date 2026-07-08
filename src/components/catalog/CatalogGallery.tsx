@@ -25,16 +25,17 @@ export function CatalogGallery() {
 function EmptyCatalogState() {
   return (
     <section className="container-x py-24 animate-catalog-in">
-      <div className="glass-panel p-16 text-center border-dashed">
+      <GlassPanel className="p-16 text-center border-dashed">
         <span className="text-eyebrow">/ Em breve</span>
         <p className="text-display text-3xl mt-4">Acervo em construção</p>
         <p className="text-text-muted text-sm mt-3">
           Novas artes serão publicadas aqui.
         </p>
-      </div>
+      </GlassPanel>
     </section>
   );
 }
+
 
 export function CatalogGallerySkeleton() {
   return (
